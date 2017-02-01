@@ -114,7 +114,7 @@ Aside from granting the correct permissions to the user configured for PAC, anot
 
 ## VCS
 
-Used for configuring the VCS to use. You can chose either Git or Mercurial (hg).
+Used for configuring the VCS to use currently we support Git
 
-* **`type`** The VCS to use, we currently support `git` or `hg`
+* **`type`** The VCS to use, we currently support `git`
 * **`repo_location`** The location of the repository to use. _Defaults to `.`_ for current working directory as PAC assumes to be called from within the repository for which to create a changelog.

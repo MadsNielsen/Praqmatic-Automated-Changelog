@@ -207,7 +207,6 @@ Prototype is developed and delivered with a CI/CD setup, with a large set of tes
 The next iteration after the prototype will supply further features:
   * Task module must handle task types and task status (closed, open ...)
   * Filtering functionality for documents based on task reference criterias such as status of tasks and type of tasks
-  * A simple Mercurial VCS module must be implemented to show prototype design flexibility
   * A new document module outputting to HTML or another format must be implemented to show design flexibility
   * A new task module for Fogbugz should show design and architecture flexibility for the prototype.
   * Design and architecture improvement and fixes

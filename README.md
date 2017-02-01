@@ -17,7 +17,7 @@ Compared to other changelog solutions, PAC is very flexible and customizable. Th
 ## Features
 
 * Customizable change reports based on **Liquid templates**
-* Collects task references in SCM commits from **Git** or **Mercurial (hg)**
+* Collects task references in SCM commits from **Git**
 * Extracts data from tasks systems like **Trac** and **JIRA** for the collected tasks
 * For task systems returning json data, all data can be used in the templates 
 * Supports **MarkDown**, **HTML** and **PDF** as report formats

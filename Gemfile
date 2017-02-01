@@ -1,6 +1,5 @@
 source "https://rubygems.org"
 #pdfkit and kramdown reqires sudo apt-get install wkhtmltopdf on the machines
-gem 'mercurial-ruby', :require => false
 gem 'pdfkit'
 gem 'rake'
 gem 'rugged', '~> 0.24.0'

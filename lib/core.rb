@@ -2,7 +2,6 @@
 require 'yaml'
 require_relative "./task.rb"
 require_relative "./gitvcs"
-require_relative "./mercurialvcs"
 require_relative "./logging"
 
 module Core extend self
@@ -93,8 +92,6 @@ module Core extend self
   def vcs
     if @@settings[:vcs][:type] == 'git'
       Vcs::GitVcs.new(settings[:vcs])
-    elsif @@settings[:vcs][:type] == 'hg'
-      Vcs::MercurialVcs.new(@@settings[:vcs])
     else
       raise ArgumentError, 'The configuration settings does not include any supported (d)vcs'
     end

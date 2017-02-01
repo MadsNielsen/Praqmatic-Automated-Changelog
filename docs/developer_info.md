@@ -51,7 +51,6 @@ The principal model in PAC consists of the following ruby `Modules`
 * Core
 * Vcs
   * GitVcs
-  * MercurialVcs
 * Model
   * PACTask
   * PACTaskCollection
@@ -148,7 +147,7 @@ The module expects a list of tasks, the id of each task is used to query the tas
 
 #### Model example
 
-The first method we use is the one that traverses your git commit messages, for example, this is the output of the `Core.get_commit_messages_by_commit_sha` method:
+The first method we use is the one that traverses your git commit messages, for example, this is the output of the `Core.get_delta` method:
 
 ``` 
 #<Model::PACCommitCollection:0x007f05540f3df8
