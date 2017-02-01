@@ -32,7 +32,6 @@ In the following example, we upgrade a simple 1.x settings file:
 
 ```YAML
 :general:
-  date_template: '%Y-%m-%d'
   :strict: false
 
 :templates:

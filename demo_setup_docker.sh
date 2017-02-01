@@ -4,7 +4,6 @@ mkdir demorepo
 unzip test/resources/idReportTestRepository.zip -d demorepo/
 cat << EOF > demorepo/idReportTestRepository/default_settings.yml 
 :general:
-  date_template: "%Y-%m-%d"
   :strict: true
 
 :templates:

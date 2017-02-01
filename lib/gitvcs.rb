@@ -25,65 +25,7 @@ module Vcs
     def walker=(v)
       @walker = v
     end
-
-    #This is the one that is used as in the most common configuration where only 1 parameter is specified
-    #HEAD to date
-    def get_first_commit_after(date)
-      headcommit = repository.lookup(repository.head.target.oid)
-      walker = createWalker
-      walker.push(headcommit)
-      date_i = date.to_i
-      walker.each do |commit|
-        if date_i >= commit.time.to_i
-          return commit.oid
-        end
-      end    
-    end
-
-    def get_first_commit_before(date)
-      headcommit = repository.lookup(repository.head.target.oid)
-      walker = createWalker
-      date_i = date.to_i
-      walker.push(headcommit)
-      walker.each do |commit|
-        if date_i <= commit.time.to_i
-          return commit.oid
-        end
-      end      
-    end
     
-    def get_commit_messages_by_commit_times(tailTime, headTime=nil)
-      raise ArgumentError, 'Tail time parameter is nil' if tailTime.nil?
-  
-      headTarget = @repository.head.target
-      headCommit = @repository.lookup(headTarget.oid)
-  
-      if headTime.nil?
-        headTime = headCommit.time
-      end
-  
-      headTime = headTime.to_i
-      tailTime = tailTime.to_i
-  
-      walker = createWalker
-
-      #We need to sort topologically (since commits can be ooo)
-      walker.sorting(Rugged::SORT_TOPO)
-
-      walker.push(headCommit.oid)
-      
-      commits = Model::PACCommitCollection.new
-
-      walker.each do |commit|
-        if headTime >= commit.time.to_i && commit.time.to_i >= tailTime
-          p_commit = Model::PACCommit.new(commit.oid, commit.message, commit.time)
-          commits.add(p_commit)
-        end
-      end
-       
-      return commits
-    end
-
     #Method that returns the newest commit a tag points to
     def get_latest_tag(treeish) 
       tag_collection = Rugged::TagCollection.new(repository)

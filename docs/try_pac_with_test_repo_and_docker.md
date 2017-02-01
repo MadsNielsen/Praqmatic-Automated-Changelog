@@ -12,7 +12,6 @@ Unzip one of the git repositories we use for testing - it can be used to generat
 
 ```
 :general:
-  date_template: "%Y-%m-%d"
   :strict: true
 
 :templates:

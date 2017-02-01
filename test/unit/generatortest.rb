@@ -13,7 +13,6 @@ class GeneratorTest < Test::Unit::TestCase
 
   	@@c_noprops = <<-eos
 :general:
-  date_template: '%Y-%m-%d'
  
 :templates:
   - { location: templates/default_id_report.md }
