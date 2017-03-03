@@ -20,7 +20,11 @@ module Model
     end
     
     def data
-	    @data
+	   unless @data.nil? then @data else [] end
+    end
+
+    def has?(attribute)      
+      return data.include?(attribute)      
     end
 
     def applies_to=(val)
@@ -28,7 +32,9 @@ module Model
     end
 
     def add_commit(commit)
-      @commit_collection.add(commit)
+      unless @commit_collection.commits.include?(commit)
+        @commit_collection.add(commit)
+      end
     end
 
     def commits
@@ -84,8 +90,8 @@ module Model
   #Model object representing a collection of tasks. Includes logic to append commits to existing tasks.
   #The task with the id 'nil' holds all the commits that do not belong to a particular task.
   class PACTaskCollection
-    def initialize
-      @tasks = []
+    def initialize(tasks: [])
+      @tasks = tasks
     end
 
     #When you add a task to a collection. It will automatically add new commits to an existing task. You will 
@@ -102,7 +108,6 @@ module Model
       end
     end
 
-    #Enumeartion method. So that PACTaskCollection.each yields a PACTask object
     def each 
       @tasks.each { |task| yield task }
     end
@@ -114,9 +119,9 @@ module Model
     def unreferenced_commits
       output = @tasks.select { |t| t.task_id.nil? }
       if output.first.nil? 
-		[]
+		    []
       else
-		output.first.commits
+		    output.first.commits
       end
     end
 

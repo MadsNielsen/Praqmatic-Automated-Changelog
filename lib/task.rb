@@ -1,9 +1,8 @@
 # encoding: utf-8
 require 'pp'
-require_relative 'decorators'
 begin
+  require_relative 'decorators'
   require 'pdfkit'
-  require 'trac4r'
   require 'fogbugz'
 rescue LoadError => error
   puts error

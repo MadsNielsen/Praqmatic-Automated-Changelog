@@ -3,7 +3,6 @@ source "https://rubygems.org"
 gem 'pdfkit'
 gem 'rake'
 gem 'rugged', '~> 0.24.0'
-gem 'trac4r', :require => false
 gem 'docopt'
 gem 'ruby-fogbugz', :require => false
 gem 'flexmock'
