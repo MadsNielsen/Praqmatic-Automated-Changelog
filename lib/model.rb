@@ -18,12 +18,9 @@ module Model
     def applies_to
       @applies_to
     end
-    
-    def data
-	   unless @data.nil? then @data else [] end
-    end
 
-    def has?(attribute)      
+    def has?(attribute)
+      if data.nil? then return false end
       return data.include?(attribute)      
     end
 
@@ -75,15 +72,10 @@ module Model
       hash
     end
 
-    def attributes
-      @attributes
-    end
-
-    def attributes=(value)
-       @attributes = value
-    end
 
     attr_accessor :commit_collection
+    attr_accessor :data
+    attr_accessor :attributes
     attr_accessor :task_id
   end
 

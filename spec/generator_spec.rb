@@ -6,7 +6,7 @@ require_relative "../lib/report.rb"
 
 RSpec.describe Report::Generator do
 
-	describe "#render_template" do
+	describe "render_template" do
 
 		let(:generator) { Report::Generator.new }
 
